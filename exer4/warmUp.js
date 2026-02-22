@@ -16,8 +16,24 @@
  * F = anything < 60
  */
 function toLetterGrade(numGrade) {
-  // TODO
+  if (numGrade < 0 || numGrade > 100) {
+    return "INVALID";
+  }
+
+  switch (true) {
+    case numGrade >= 90:
+      return "A";
+    case numGrade >= 80:
+      return "B";
+    case numGrade >= 70:
+      return "C";
+    case numGrade >= 60:
+      return "D";
+    default:
+      return "F";
+  }
 }
+
 
 /**
  * Task 2: Create a function that takes in an array of integers and returns a
@@ -26,9 +42,19 @@ function toLetterGrade(numGrade) {
  *
  * Example: [9, 3, 4, 1, 2, 0] --> [4, 2, 0]
  */
+
 function getEvenElements(array) {
-  // TODO
+  const results = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      results.push(array[i]);
+    }
+  }
+
+  return results;
 }
+
 
 /**
  * Task 3: Create a function that takes in a sentence and returns the LENGTH
@@ -40,8 +66,18 @@ function getEvenElements(array) {
  * Example: "I love Bits of Good" --> 4
  */
 function findLongestWord(string) {
-  // TODO
+  const words = string.split(" ");
+  let maxLength = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+    }
+  }
+
+  return maxLength;
 }
+
 
 /**
  * Task 4: Create a function that takes in 2 objects and return an object that 
@@ -64,9 +100,14 @@ function findLongestWord(string) {
         friendly: false
     } 
  */
+
 function combineObjects(object1, object2) {
-  // TODO
+  return {
+    ...object1,
+    ...object2,
+  };
 }
+
 
 /**
  *  Task 5: Create a function that takes an array as an argument and returns
@@ -76,9 +117,17 @@ function combineObjects(object1, object2) {
  *
  *  Example: [1, 2, 3] -> [3, 2, 1]
  */
+
 function reverseArr(array) {
-  // TODO
+  const reversed = [];
+
+  for (let i = array.length - 1; i >= 0; i--) {
+    reversed.push(array[i]);
+  }
+
+  return reversed;
 }
+
 
 // DO NOT EDIT BELOW THIS LINE -- the code is for testing purposes only!
 // To test your code, run `node warmUp.js` in your terminal
